@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static', filename='img/apple-icon.png') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+  <title>{% block title %}VisionMate Dashboard{% endblock %}</title>
+
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/nucleo-icons.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/soft-ui-dashboard.css') }}" rel="stylesheet" />
+  <!-- font awesome -->
+    <link href="{{ url_for('static', filename='fa/css/all.min.css') }}" rel="stylesheet" />
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="g-sidenav-show bg-gray-100">
+  <!-- Sidebar -->
+  {% include 'partials/sidebar.html' %}
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <!-- Navbar -->
+    {% include 'partials/navbar.html' %}
+
+    <!-- Content -->
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/soft-ui-dashboard.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/plugins/smooth-scrollbar.min.js') }}"></script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
