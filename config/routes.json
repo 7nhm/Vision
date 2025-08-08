@@ -1,0 +1,110 @@
+{
+  "dashboard": {
+    "blueprint": "dashboard",
+    "routes": [
+      {
+        "url": "/",
+        "endpoint": "index",
+        "methods": ["GET"],
+        "view_class": "DashboardView",
+        "template": "pages/UserDashboard.html",
+        "title": "Dashboard - VisionMate",
+        "auth_required": false
+      },
+      {
+        "url": "/dashboard", 
+        "endpoint": "dashboard",
+        "methods": ["GET"],
+        "view_class": "DashboardView",
+        "template": "pages/UserDashboard.html",
+        "title": "Dashboard - VisionMate",
+        "auth_required": false
+      }
+    ]
+  },
+  "auth": {
+    "blueprint": "auth",
+    "url_prefix": "/auth",
+    "routes": [
+      {
+        "url": "/sign-in",
+        "endpoint": "sign_in",
+        "methods": ["GET", "POST"],
+        "view_class": "SignInView",
+        "template": "pages/signin.html",
+        "title": "Sign In - VisionMate",
+        "auth_required": false
+      },
+      {
+        "url": "/sign-up",
+        "endpoint": "sign_up",
+        "methods": ["GET", "POST"],
+        "view_class": "SignUpView",
+        "template": "pages/signup.html",
+        "title": "Sign Up - VisionMate",
+        "auth_required": false
+      },
+      {
+        "url": "/profile",
+        "endpoint": "profile",
+        "methods": ["GET", "POST"],
+        "view_class": "ProfileView",
+        "template": "pages/profile.html",
+        "title": "Profile - VisionMate",
+        "auth_required": true
+      },
+      {
+        "url": "/logout",
+        "endpoint": "logout",
+        "methods": ["POST"],
+        "view_class": "LogoutView",
+        "auth_required": true
+      }
+    ]
+  },
+  "management": {
+    "blueprint": "management",
+    "url_prefix": "/management",
+    "routes": [
+      {
+        "url": "/users",
+        "endpoint": "users",
+        "methods": ["GET"],
+        "view_class": "UserManagementView",
+        "template": "pages/tbCustom.html",
+        "title": "Quản Lý - VisionMate",
+        "auth_required": true,
+        "admin_required": true
+      },
+      {
+        "url": "/custom",
+        "endpoint": "custom",
+        "methods": ["GET"],
+        "view_class": "CustomView",
+        "template": "pages/custom.html",
+        "title": "Custom - VisionMate",
+        "auth_required": true
+      }
+    ]
+  },
+  "api": {
+    "blueprint": "api",
+    "url_prefix": "/api/v1",
+    "routes": [
+      {
+        "url": "/users",
+        "endpoint": "users",
+        "methods": ["GET", "POST"],
+        "view_class": "UserAPIView",
+        "auth_required": true
+      },
+      {
+        "url": "/users/<int:user_id>",
+        "endpoint": "user_detail",
+        "methods": ["GET", "PUT", "DELETE"],
+        "view_class": "UserDetailAPIView",
+        "auth_required": true
+      }
+    ]
+  }
+}

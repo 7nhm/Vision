@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title or "Custom - VisionMate" }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header pb-0">
+                    <h6>Custom Page</h6>
+                </div>
+                <div class="card-body px-0 pt-0 pb-2">
+                    <div class="table-responsive p-0">
+                        <div class="p-4">
+                            <h4>Trang tùy chỉnh</h4>
+                            <p>Đây là trang tùy chỉnh được tạo bằng cấu trúc Blueprint + Class-based Views.</p>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-chart-bar fa-3x text-primary mb-3"></i>
+                                            <h5>Thống kê</h5>
+                                            <p>Xem báo cáo và thống kê hệ thống</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-cog fa-3x text-success mb-3"></i>
+                                            <h5>Cài đặt</h5>
+                                            <p>Quản lý cài đặt hệ thống</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-users fa-3x text-warning mb-3"></i>
+                                            <h5>Người dùng</h5>
+                                            <p>Quản lý người dùng hệ thống</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

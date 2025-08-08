@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title or "Sign In - VisionMate" }}{% endblock %}
+
+{% block content %}
+<main class="main-content mt-0">
+    <section>
+        <div class="page-header min-vh-75">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                        <div class="card card-plain">
+                            <div class="card-header pb-0 text-start">
+                                <h3 class="font-weight-bolder">Đăng nhập</h3>
+                                <p class="mb-0">Nhập email và mật khẩu để đăng nhập</p>
+                            </div>
+                            <div class="card-body">
+                                {% with messages = get_flashed_messages(with_categories=true) %}
+                                    {% if messages %}
+                                        {% for category, message in messages %}
+                                            <div class="alert alert-{{ 'danger' if category == 'error' else 'success' }} alert-dismissible fade show" role="alert">
+                                                {{ message }}
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endwith %}
+                                
+                                <form role="form" method="POST">
+                                    <label>Email</label>
+                                    <div class="mb-3">
+                                        <input type="email" name="email" class="form-control" placeholder="Email" required>
+                                    </div>
+                                    <label>Mật khẩu</label>
+                                    <div class="mb-3">
+                                        <input type="password" name="password" class="form-control" placeholder="Mật khẩu" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <p class="mb-4 text-sm mx-auto">
+                                    Chưa có tài khoản?
+                                    <a href="{{ url_for('auth.sign_up') }}" class="text-primary text-gradient font-weight-bold">Đăng ký</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
